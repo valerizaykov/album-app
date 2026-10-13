@@ -7,7 +7,6 @@ import { Auth } from './app/auth/auth';
   selector: 'app-login-page',
   templateUrl: './login.component.html',
   imports: [ ReactiveFormsModule, RouterModule]
-  s
 })
 export class LoginPageComponent {
 
