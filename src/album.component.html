@@ -1,0 +1,33 @@
+<p><b>Welcome to our post app!</b></p>
+<html>
+<body>
+
+@if (authService.isLoggedIn()) {<button (click)="logout()">Logout</button>}
+<button (click)="openNewOrderForm()">Add</button>
+<label>
+  Search:
+  <input type="text"
+    [(ngModel)]="query"
+    (input)="filterPosts()"
+    placeholder="Type to filter..."
+  />
+</label>
+<table border = 1>
+  <th>id</th>
+  <th>title</th>
+  <th>body</th>
+  <th>user</th>
+  @for (it of (finalPost | async); track it.id )
+   {
+  <tr>
+    <td>{{it.id}}</td>
+    <td>{{it.title}}</td>
+    <td>{{it.body}}</td>
+    <td>{{it.user.name}}</td>
+  <tr>
+  }
+</table>
+
+</body>
+</html>
+
